@@ -11,7 +11,28 @@ test('complete build supports subpaths, images and captions, excludes drafts, an
   const source = fileURLToPath(new URL('../', import.meta.url));
   const root = await mkdtemp(path.join(os.tmpdir(), 'avd-build-'));
   try {
-    for (const name of ['scripts', 'src', 'public', 'content', 'package.json', 'site.config.mjs']) await cp(path.join(source, name), path.join(root, name), { recursive: true });
+    for (const name of [
+      'scripts',
+      'src',
+      'public',
+      'package.json',
+      'site.config.mjs'
+    ]) {
+      await cp(
+        path.join(source, name),
+        path.join(root, name),
+        { recursive: true }
+      );
+    }
+
+    // Use isolated test content instead of copying real entries.
+    await mkdir(path.join(root, 'content/entries'), { recursive: true });
+    await mkdir(path.join(root, 'content/pages'), { recursive: true });
+
+    await writeFile(
+      path.join(root, 'content/pages/about.md'),
+      '---\ntitle: "About"\n---\n\nA test page.\n'
+    );
     await symlink(path.join(source, 'node_modules'), path.join(root, 'node_modules'), 'dir');
     const entry = path.join(root, 'content/entries/2026-10-07-01');
     await mkdir(path.join(entry, 'images'), { recursive: true });
