@@ -14,5 +14,5 @@ for (let number = 1; ; number++) {
   catch (error) { if (error.code !== 'EEXIST') throw error; }
 }
 await mkdir(path.join(directory, 'images'));
-await writeFile(path.join(directory, 'index.md'), `---\ndate: "${date}"\ndraft: true\n---\n\nWrite here.\n`);
+await writeFile(path.join(directory, 'index.md'), `---\ndate: "${date}"\ntitle: insert title\npreview: insert preview\ndraft: false\n---\n\nWrite here.\n`);
 console.log(`Created ${path.relative(process.cwd(), directory)}/index.md\nRemove draft: true when ready to publish.`);
