@@ -23,7 +23,7 @@ export function templates(config) {
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="sheet">
     <header class="site-header">
-      <a class="site-name" href="${url('/')}" aria-label="${escape(config.name)}, home"><span class="prompt" aria-hidden="true">~/</span>${escape(config.name)}<span aria-hidden="true">_</span></a>
+      <a class="site-name" href="${url('/')}" aria-label="${escape(config.name)}, home">${escape(config.name)}</a>
       <nav aria-label="Main navigation">${[['home', '/'], ['archive', '/archive/'], ['about', '/about/']].map(([name, path]) => `<a href="${url(path)}"${active === name ? ' aria-current="page"' : ''}>${name}</a>`).join('')}</nav>
     </header>
     <main id="main">${content}</main>
