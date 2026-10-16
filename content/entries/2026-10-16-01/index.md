@@ -1,6 +1,8 @@
 ---
 date: "2026-10-16"
 title: Jazz is pretty cool
+tags:
+    - music
 draft: false
 ---
 

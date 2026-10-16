@@ -2,6 +2,8 @@
 date: "2026-10-15"
 title: "First post!"
 preview: "What is this website and why I created it"
+tags:
+    - meta
 ---
 
 This is the first post I'm making on this website. I created it because sometimes I have thoughts and observations that I think are interesting, or that I at least would like to keep written down for the future. 

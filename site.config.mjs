@@ -1,6 +1,6 @@
 export default {
   name: 'audio video disco',
-  description: 'Notes, photographs, and things still being thought about.',
+  description: 'Thoughts and observations.',
   language: 'en',
   // Set these when choosing a host. Example: origin https://name.github.io,
   // basePath /audio-video-disco for a GitHub project site. Use '' at a domain root.

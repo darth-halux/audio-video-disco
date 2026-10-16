@@ -69,6 +69,7 @@ async function build() {
   await mkdir(path.join(output, 'assets'), { recursive: true });
   await cp(path.join(root, 'public'), output, { recursive: true });
   await cp(path.join(root, 'src/css/site.css'), path.join(output, 'assets/site.css'));
+  await cp(path.join(root, 'src/js/archive.js'), path.join(output, 'assets/archive.js'));
   for (const entry of entries) addPage(`entries/${entry.id}/index.html`, view.entry(entry, await render(entry.body, entry.directory)));
   addPage('index.html', view.home(entries));
   addPage('archive/index.html', view.archive(entries));
@@ -94,7 +95,7 @@ async function build() {
     await mkdir(path.dirname(path.join(output, file)), { recursive: true });
     await writeFile(path.join(output, file), html);
   }
-  console.log(`Built ${entries.length} entries and ${pages.size} pages in dist/. No browser JavaScript.`);
+  console.log(`Built ${entries.length} entries and ${pages.size} pages in dist/. Tag filtering JavaScript loads only on Archive.`);
 }
 
 build().catch(error => { console.error(`Build failed: ${error.message}`); process.exitCode = 1; });

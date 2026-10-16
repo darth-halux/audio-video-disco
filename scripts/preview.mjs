@@ -7,7 +7,7 @@ import config from '../site.config.mjs';
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const base = process.env.SITE_BASE_PATH ?? config.basePath;
 const port = Number(process.env.PORT || 4173);
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.avif': 'image/avif' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.avif': 'image/avif' };
 try { await stat(path.join(root, 'index.html')); }
 catch { console.error('Run npm run build first.'); process.exit(1); }
 http.createServer(async (req, res) => {

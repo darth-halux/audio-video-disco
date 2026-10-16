@@ -2,6 +2,9 @@
 date: "2026-10-15"
 title: 10 Things I Hate About You
 preview: What I thought about this classic romcom
+tags:
+    - film
+    - long
 draft: false
 ---
 

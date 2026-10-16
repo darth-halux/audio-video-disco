@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
   --paper: light-dark(#f8f9f7, #141714);
   --ink: light-dark(#293029, #d6ded3);
   --quiet: light-dark(#606a60, #9aa797);
@@ -44,8 +44,22 @@ th, td { text-align: left; padding: .5rem; border-bottom: 1px solid var(--rule);
 hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 .back { display: inline-block; margin-top: 1.625rem; padding: .625rem 0; color: var(--terminal); font-size: .875rem; }
 .archive li { margin-bottom: 1.375rem; }
-.archive a { display: block; text-decoration: none; }
-.archive a:hover span { text-decoration: underline; }
+.archive-entry-link { display: block; text-decoration: none; }
+.archive-entry-link:hover > span:not(.archive-preview) { text-decoration: underline; }
+.archive-preview { display: block; color: var(--quiet); font-size: .875rem; }
+.tags { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem; margin-top: .5rem; font-size: .8125rem; }
+.tag { display: inline-block; max-width: 100%; padding: .1rem .45rem; border: 1px solid var(--rule); border-radius: 999px;; color: var(--terminal); text-decoration: none; overflow-wrap: anywhere; }
+.tag:hover { border-color: var(--terminal); }
+.tags-label { color: var(--quiet); margin-right: .2rem; }
+.entries .tags { margin-left: calc(10ch + 1.5rem); font-size: 1rem; }
+.entries .tag { font-size: .8125rem; }
+.reading .tags { margin: -.25rem 0 1.5rem; }
+.archive-filter { display: flex; align-items: baseline; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.5rem; font-size: .875rem; }
+.archive-filter select { max-width: 100%; min-height: 2.75rem; padding: .4rem .6rem; font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: .2rem; }
+.archive-filter select:focus-visible { outline: 2px solid var(--terminal); outline-offset: 3px; }
+.archive-status { color: var(--quiet); font-size: .875rem; margin: 0 0 1.5rem; }
+[hidden] { display: none !important; }
+@media (pointer: coarse) { .tag { padding: .55rem .6rem; } }
 .visually-hidden, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .skip-link:focus { display: block; padding: 1rem; }
 @media (max-width: 30rem) {
@@ -54,4 +68,5 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
   .entry-link { grid-template-columns: 1fr; gap: .375rem; }
   .entry-link time { font-size: .875rem; }
   .preview { grid-column: 1; }
+  .entries .tags { margin-left: 0; }
 }
